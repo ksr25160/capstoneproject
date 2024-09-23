@@ -1,182 +1,117 @@
 package capstoneproject.domain;
 
-import capstoneproject.domain.Prescribed;
+import capstoneproject.DiagnosisApplication;
 import capstoneproject.domain.DiagnosisCompleted;
 import capstoneproject.domain.DiagnosisRejected;
-import capstoneproject.DiagnosisApplication;
-import javax.persistence.*;
-import java.util.List;
-import lombok.Data;
-import java.util.Date;
+import capstoneproject.domain.Prescribed;
 import java.time.LocalDate;
-
+import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
+import lombok.Data;
 
 @Entity
-@Table(name="Diagnosis_table")
+@Table(name = "Diagnosis_table")
 @Data
-
 //<<< DDD / Aggregate Root
-public class Diagnosis  {
+public class Diagnosis {
 
-
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    
-    
-    
+
     private Long patientId;
-    
-    
-    
-    
+
     private Date receptionDt;
-    
-    
-    
-    
+
     private String priscribeCode;
-    
-    
-    
-    
+
     private Date priscribeDt;
-    
-    
-    
-    
+
     private String diagnosisStatus;
 
-    @PostPersist
-    public void onPostPersist(){
+    @PostUpdate
+    public void onPostPersist() {
+       
+        
+        this.setDiagnosisStatus(repository().findById(this.getId()).get().getDiagnosisStatus());
+        String diagnosisStatus = this.getDiagnosisStatus();
 
 
-        Prescribed prescribed = new Prescribed(this);
-        prescribed.publishAfterCommit();
-
-
-
-        DiagnosisCompleted diagnosisCompleted = new DiagnosisCompleted(this);
-        diagnosisCompleted.publishAfterCommit();
-
-
-
-        DiagnosisRejected diagnosisRejected = new DiagnosisRejected(this);
-        diagnosisRejected.publishAfterCommit();
-
+        if(diagnosisStatus != null ){
+            if(diagnosisStatus.equals("처방")){
     
+                Prescribed prescribed = new Prescribed(this);
+                prescribed.publishAfterCommit();
+
+
+            }else if(diagnosisStatus.equals("진료거부")){ 
+
+                DiagnosisRejected diagnosisRejected = new DiagnosisRejected(this);
+                diagnosisRejected.publishAfterCommit();
+
+            }else if(diagnosisStatus.equals("진료완료")){ 
+            
+                DiagnosisCompleted diagnosisCompleted = new DiagnosisCompleted(this);
+                diagnosisCompleted.publishAfterCommit();
+            }
+        }
     }
 
-    public static DiagnosisRepository repository(){
-        DiagnosisRepository diagnosisRepository = DiagnosisApplication.applicationContext.getBean(DiagnosisRepository.class);
+    public static DiagnosisRepository repository() {
+        DiagnosisRepository diagnosisRepository = DiagnosisApplication.applicationContext.getBean(
+            DiagnosisRepository.class
+        );
         return diagnosisRepository;
     }
 
-
-
-    public void patientPrescribe(){
-        //implement business logic here:
+    //<<< Clean Arch / Port Method
+    public static void patientInfoTransfer( TreatmentReceived treatmentReceived ) {
         
-        Prescribed prescribed = new Prescribed(this);
-        prescribed.publishAfterCommit();
-        
-        
-    }
-    public void patientDiagnosis(){
-        //implement business logic here:
-        
-        DiagnosisRejected diagnosisRejected = new DiagnosisRejected(this);
-        diagnosisRejected.publishAfterCommit();
-        
-        
-        capstoneproject.external.DiagnosisQuery diagnosisQuery = new capstoneproject.external.DiagnosisQuery();
-        DiagnosisApplication.applicationContext
-            .getBean(capstoneproject.external.Service.class)
-            .( diagnosisQuery);
-    }
-
-//<<< Clean Arch / Port Method
-    public static void patientInfoTransfer(TreatmentReceived treatmentReceived){
-        
-        //implement business logic here:
-
-        /** Example 1:  new item 
+      
+        // 데이터 생성 
         Diagnosis diagnosis = new Diagnosis();
+        diagnosis.setPatientId(treatmentReceived.getId());
+        diagnosis.setReceptionDt(treatmentReceived.getReceptionDt());
         repository().save(diagnosis);
 
-        */
 
-        /** Example 2:  finding and process
-        
-        repository().findById(treatmentReceived.get???()).ifPresent(diagnosis->{
-            
-            diagnosis // do something
-            repository().save(diagnosis);
-
-
-         });
-        */
-
-        
     }
-//>>> Clean Arch / Port Method
-//<<< Clean Arch / Port Method
-    public static void updatePrescribeStatus(ExaminationCanceled examinationCanceled){
+    //>>> Clean Arch / Port Method
+
+    //<<< Clean Arch / Port Method
+    public static void updatePrescribeStatus( ExaminationCanceled examinationCanceled) {
         
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Diagnosis diagnosis = new Diagnosis();
-        repository().save(diagnosis);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(examinationCanceled.get???()).ifPresent(diagnosis->{
+         repository().findById(examinationCanceled.getExamId()).ifPresent(diagnosis->{
             
-            diagnosis // do something
-            repository().save(diagnosis);
+            if(diagnosis != null){
 
+                diagnosis.setDiagnosisStatus(examinationCanceled.getStatus());
+                repository().save(diagnosis);
+            }
+       });
+      
 
-         });
-        */
-
-        
     }
-//>>> Clean Arch / Port Method
-//<<< Clean Arch / Port Method
-    public static void updatePrescribeStatus(ExaminationCompleted examinationCompleted){
-        
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Diagnosis diagnosis = new Diagnosis();
-        repository().save(diagnosis);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(examinationCompleted.get???()).ifPresent(diagnosis->{
+    //>>> Clean Arch / Port Method
+    
+    //<<< Clean Arch / Port Method
+    public static void updatePrescribeStatus(
+        ExaminationCompleted examinationCompleted
+    ) {
+              
+        repository().findById(examinationCompleted.getExamId()).ifPresent(diagnosis->{
             
-            diagnosis // do something
-            repository().save(diagnosis);
+            if(diagnosis != null){
 
+                diagnosis.setDiagnosisStatus(examinationCompleted.getStatus());
+                repository().save(diagnosis);
+            }
+       });
+      
 
-         });
-        */
-
-        
     }
-//>>> Clean Arch / Port Method
-
+    //>>> Clean Arch / Port Method
 
 }
 //>>> DDD / Aggregate Root

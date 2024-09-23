@@ -45,9 +45,9 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
-api:
-  url: 
-    diagnosis: localhost:8083 
+# api:
+#   url: 
+#     diagnosis: localhost:8083 
     
 
 server:
@@ -85,8 +85,8 @@ spring:
           destination: capstoneproject
           contentType: application/json
 
-api:
-  url: 
-    diagnosis: diagnosis:8080 
+# api:
+#   url: 
+#     diagnosis: diagnosis:8080 
     
 

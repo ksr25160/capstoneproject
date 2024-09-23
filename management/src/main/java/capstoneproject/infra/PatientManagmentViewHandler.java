@@ -52,7 +52,7 @@ public class PatientManagmentViewHandler {
             if (patientManagmentOptional.isPresent()) {
                 PatientManagment patientManagment = patientManagmentOptional.get();
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                patientManagment.setStatus("진료상태");
+                patientManagment.setStatus("진료상태값");
                 // view 레파지 토리에 save
                 patientManagmentRepository.save(patientManagment);
             }
@@ -75,7 +75,7 @@ public class PatientManagmentViewHandler {
             if (patientManagmentOptional.isPresent()) {
                 PatientManagment patientManagment = patientManagmentOptional.get();
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
-                patientManagment.setStatus("진료상태");
+                patientManagment.setStatus("진료상태값");
                 // view 레파지 토리에 save
                 patientManagmentRepository.save(patientManagment);
             }

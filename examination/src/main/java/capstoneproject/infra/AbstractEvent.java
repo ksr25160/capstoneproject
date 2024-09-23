@@ -80,17 +80,17 @@ public class AbstractEvent {
         return getEventType().equals(getClass().getSimpleName());
     }
 
-    public String toJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = null;
+    // public String toJson() {
+    //     ObjectMapper objectMapper = new ObjectMapper();
+    //     String json = null;
 
-        try {
-            json = objectMapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("JSON format exception", e);
-        }
+    //     try {
+    //         json = objectMapper.writeValueAsString(this);
+    //     } catch (JsonProcessingException e) {
+    //         throw new RuntimeException("JSON format exception", e);
+    //     }
 
-        return json;
-    }
+    //     return json;
+    // }
 }
 //>>> Clean Arch / Outbound Adaptor

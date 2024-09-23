@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reception
-          image: "username/reception:latest"
+          image: "ksr0506/reception:latest"
           ports:
             - containerPort: 8080
           readinessProbe:

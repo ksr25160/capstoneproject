@@ -12,10 +12,10 @@ import lombok.*;
 public class ExaminationCompleted extends AbstractEvent {
 
     private Long id;
-    private Long patientId;
-    private Long examId;
-    private Long examDt;
-    private String status;
+    // private Long patientId;
+    // private Long examId;
+    // private Long examDt;
+    // private String status;
 
     public ExaminationCompleted(Examination aggregate) {
         super(aggregate);

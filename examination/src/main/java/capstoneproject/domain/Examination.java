@@ -12,7 +12,7 @@ import lombok.Data;
 @Entity
 @Table(name = "Examination_table")
 @Data
-//<<< DDD / Aggregate Root
+// <<< DDD / Aggregate Root
 public class Examination {
 
     @Id
@@ -23,59 +23,50 @@ public class Examination {
 
     private Long examId;
 
-    private Long examDt;
+    private Date examDt;
 
     private String status;
 
     @PostPersist
-    public void onPostPersist() {}
+    public void onPostPersist() {
+    }
 
     @PostUpdate
     public void onPostUpdate() {
-        ExaminationCanceled examinationCanceled = new ExaminationCanceled(this);
-        examinationCanceled.publishAfterCommit();
 
-        ExaminationCompleted examinationCompleted = new ExaminationCompleted(
-            this
-        );
-        examinationCompleted.publishAfterCommit();
+        if (this.getStatus() != null) {
+
+            if (this.getStatus().equals("검사완료")) {
+
+                ExaminationCompleted examinationCompleted = new ExaminationCompleted(this);
+                examinationCompleted.publishAfterCommit();
+
+            } else if (this.getStatus().equals("검사거부")) {
+
+                ExaminationCanceled examinationCanceled = new ExaminationCanceled(this);
+                examinationCanceled.publishAfterCommit();
+            }
+        }
     }
 
     public static ExaminationRepository repository() {
-        ExaminationRepository examinationRepository = ExaminationApplication.applicationContext.getBean(
-            ExaminationRepository.class
-        );
-        return examinationRepository;
+        ExaminationRepository diagnosisRepository = ExaminationApplication.applicationContext.getBean(
+                ExaminationRepository.class);
+        return diagnosisRepository;
     }
 
-    public void patientExamine() {
-        //implement business logic here:
-
-    }
-
-    //<<< Clean Arch / Port Method
+    // <<< Clean Arch / Port Method
     public static void prescriptionInfoTransfer(Prescribed prescribed) {
-        //implement business logic here:
 
-        /** Example 1:  new item 
-        Examination examination = new Examination();
-        repository().save(examination);
+        Examination exam = new Examination();
 
-        */
+        exam.setPatientId(prescribed.getPatientId());
+        exam.setExamId(prescribed.getId());
 
-        /** Example 2:  finding and process
-        
-        repository().findById(prescribed.get???()).ifPresent(examination->{
-            
-            examination // do something
-            repository().save(examination);
-
-
-         });
-        */
+        repository().save(exam);
 
     }
-    //>>> Clean Arch / Port Method
+    // >>> Clean Arch / Port Method
 
 }
-//>>> DDD / Aggregate Root
+// >>> DDD / Aggregate Root

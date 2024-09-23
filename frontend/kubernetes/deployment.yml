@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: username/frontend:latest
+          image: ksr0506/frontend:latest
           ports:
             - containerPort: 8080
           readinessProbe:

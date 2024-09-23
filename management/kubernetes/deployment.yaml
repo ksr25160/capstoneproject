@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: management
-          image: "username/management:latest"
+          image: "ksr0506/management:latest"
           ports:
             - containerPort: 8080
           readinessProbe:

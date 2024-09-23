@@ -64,8 +64,8 @@ public class Reception {
     
 
     }
-
     //>>> Clean Arch / Port Method
+
     //<<< Clean Arch / Port Method
     public static void updateReceptionStatus(
         DiagnosisCompleted diagnosisCompleted
