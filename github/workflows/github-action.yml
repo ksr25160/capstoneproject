@@ -1,0 +1,76 @@
+name: github-action
+run-name: ${{ github.actor }} is out building GitHub Actions
+
+on:
+  push:
+    # Pattern matched against refs/tags
+    tags:        
+      - '**' 
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Build Maven Projects
+        run: |
+          mvn clean package -f ./reception/pom.xml
+          mvn clean package -f ./diagnosis/pom.xml
+          mvn clean package -f ./examination/pom.xml
+          mvn clean package -f ./management/pom.xml
+
+      - name: Docker Build and push for Reception
+        uses: docker/build-push-action@v4
+        with:
+          context: ./reception
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/reception:latest
+            ghcr.io/${{ github.repository }}/reception:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Diagnosis
+        uses: docker/build-push-action@v4
+        with:
+          context: ./diagnosis
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/diagnosis:latest
+            ghcr.io/${{ github.repository }}/diagnosis:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Examination
+        uses: docker/build-push-action@v4
+        with:
+          context: ./examination
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/examination:latest
+            ghcr.io/${{ github.repository }}/examination:${{ github.ref_name }}
+            
+      - name: Docker Build and push for Management
+        uses: docker/build-push-action@v4
+        with:
+          context: ./management
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/management:latest
+            ghcr.io/${{ github.repository }}/management:${{ github.ref_name }}
+            
