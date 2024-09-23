@@ -1,21 +1,23 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: diagnosis
-  labels:
-    app: diagnosis
-spec:
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: "diagnosis"
+  labels: 
+    app: "diagnosis"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "diagnosis"
   replicas: 1
-  selector:
-    matchLabels:
-      app: diagnosis
-  template:
-    metadata:
-      labels:
-        app: diagnosis
-    spec:
-      containers:
-        - name: diagnosis
+  template: 
+    metadata: 
+      labels: 
+        app: "diagnosis"
+    spec: 
+      containers: 
+        - 
+          name: "diagnosis"
           image: "user04.azurecr.io/diagnosis:latest"
-          ports:
-            - containerPort: 8080
+          ports: 
+            - 
+              containerPort: 80
