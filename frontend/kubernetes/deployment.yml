@@ -18,9 +18,10 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ksr0506/frontend:latest
+          image: "user04.azurecr.io/frontend:latest"
           ports:
-            - containerPort: 8080
+             - containerPort: 8080
+            #  - containerPort: 80
           readinessProbe:
             httpGet:
               path: '/actuator/health'

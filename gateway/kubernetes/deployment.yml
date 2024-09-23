@@ -16,9 +16,10 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: ksr0506/gateway:latest
+          image: "user04.azurecr.io/gateway:latest"
           ports:
-            - containerPort: 8080
+             - containerPort: 8080
+            #  - containerPort: 80
           resources:
             requests:
               cpu: "200m"            

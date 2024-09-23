@@ -16,9 +16,10 @@ spec:
     spec:
       containers:
         - name: examination
-          image: "ksr0506/examination:latest"
+          image: "user04.azurecr.io/examination:latest"
           ports:
             - containerPort: 8080
+            # - containerPort: 80
           readinessProbe:
             httpGet:
               path: '/actuator/health'
