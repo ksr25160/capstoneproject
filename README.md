@@ -17,7 +17,7 @@
    1. 진료 기능이 수행되지 않더라도 진료를 365일 병원 업무 시간 내에는 받을 수 있어야 한다 Async (event-driven), Eventual Consistency
    2. 검사 기능이 수행되지 않더라도 검사를 365일 병원 업무 시간 내에는 받을 수 있어야 한다 Async (event-driven), Eventual Consistency
 2. 성능
-   1. 환자 접수 데스크(팀)은 현재 고객의 진료 상태를 확인할 수 있어야 한다 CQRS
+   1. 환자 관리팀은 현재 고객의 진료 상태를 확인할 수 있어야 한다 CQRS
 
 ## 클라우드 네이티브 아키텍처
 
