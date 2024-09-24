@@ -1,0 +1,31 @@
+http http://localhost:8080/diagnoses
+
+
+kubectl autoscale deployment diagnosis --cpu-percent=20 --min=1 --max=3
+
+
+siege -c1 -t180S -v http://diagnosis:8080/diagnoses --delay=1S
+siege -c1 -t60S -v http://order:8080/orders --delay=1S
+kubectl exec pod/diagnosis-84f566d7db-ggkgn -it -- bash
+
+kubectl exec -it pod/diagnosis-84f566d7db-ggkgn -n default -- bash
+
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-dev
+  namespace: default
+data:
+  ORDER_DB_URL: jdbc:mysql://mysql:3306/connectdb1?serverTimezone=Asia/Seoul&useSSL=false
+  ORDER_DB_USER: myuser
+  ORDER_DB_PASS: mypass
+  ORDER_LOG_LEVEL: DEBUG
+EOF
+
+
+kubectl exec -it pod/diagnosis-5f68cbb9fb-lhrbq -- /bin/sh
+
+kubectl exec -it pod/diagnosis-5f68cbb9fb-ghhzc -- /bin/sh
+
+

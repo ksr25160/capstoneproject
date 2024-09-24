@@ -1,0 +1,687 @@
+cd infra
+cd diagnosis
+cd reception
+cd examination
+cd kafka
+cd gateway
+http http://localhost:8088/receptions patientId="1" receptionDt="20240923" patientNm="김환자" address="서울시 서초구 효령로" status="접수"
+http http://localhost:8088/diagnoses
+clear
+cd kafka
+docker-compose exec -it kafka /bin/bash 
+docker-compose exec -it kafka /bin/bash
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic shop  --from-beginning
+cd kafka
+docker-compose exec -it kafka /bin/bash
+clear
+docker-compose exec -it kafka /bin/bash
+clear
+cd management
+http http://localhost:8088/diagnoses id=1 patientId=1 priscribeCode=AA001 priscribeDt=20240923 receptionDt=20240923 diagnosisStatus=처방
+clear
+http http://localhost:8088/examinations
+clear
+http http://localhost:8088/examinations id=1 examDt=20240923 examId=1 patientId=1 diagnosisStatus=검사거부
+http http://localhost:8088/examinations id=1 examDt=20240923 examId=1 patientId=1 Status=검사거부
+http http://localhost:8088/examinations id=1 examDt=20240923 examId=1 patientId=1 status=검사거부
+clear
+http http://localhost:8088/diagnoses/1
+clear
+http http://localhost:8088/diagnoses id=1 patientId=1 priscribeCode=AA001 priscribeDt=20240923 receptionDt=20240923 diagnosisStatus=진료완료
+clear
+http http://localhost:8088/receptions
+clear
+http http://localhost:8085/patientManagements
+http http://localhost:8088/patientManagements
+http http://localhost:8088/patientManagments
+http http://localhost:8085/patientManagments
+clear
+http http://localhost:8088/receptions patientId=2 receptionDt=20240923 patientNm=박환자 address=서울시 서초구 효령로 status=접수
+http http://localhost:8088/receptions patientId=2 receptionDt=20240923 patientNm=박환자 address="서울시 서초구 효령로" status=접수
+clear
+http http://localhost:8085/patientManagments
+mvn spring-boot:run
+clear
+clear
+http http://localhost:8085/patientManagments
+http://localhost:8088/receptions
+http http://localhost:8088/receptions
+http http://localhost:8088/receptions patientId=3 receptionDt=20240923 patientNm=남환자 address=서울시 서초구 효령로 status=접수
+clear
+http http://localhost:8088/receptions patientId=3 receptionDt=20240923 patientNm=남환자 address="서울시 서초구 효령로" status=접수
+http http://localhost:8088/receptions patientId=4 receptionDt=20240923 patientNm=여환자 address="서울시 서초구 효령로" status=접수
+clear
+http http://localhost:8085/patientManagments
+clear
+mvn spring-boot:run
+http http://localhost:8085/patientManagments
+http http://localhost:8088/receptions patientId=5 receptionDt=20240923 patientNm=이환자 address="서울시 서초구 효령로" status=접수
+http http://localhost:8085/patientManagments
+http http://localhost:8088/diagnoses id=5 patientId=5 priscribeCode=AA005 priscribeDt=20240923 receptionDt=20240923 diagnosisStatus=처방
+http http://localhost:8088/receptions patientId=6 receptionDt=20240923 patientNm=박환자 address="서울시 서초구 효령로" status=접수
+http http://localhost:8085/patientManagments
+clear
+clear
+http http://localhost:8085/patientManagments
+clear
+http http://localhost:8085/patientManagments
+clear
+http http://localhost:8088/receptions patientId=7 receptionDt=20240923 patientNm=금환자 address="서울시 서초구 효령로" status=접수
+clear
+http http://localhost:8085/patientManagments
+http http://localhost:8088/diagnoses id=7 patientId=7 priscribeCode=AA007 priscribeDt=20240923 receptionDt=20240923 diagnosisStatus=처방
+http http://localhost:8085/patientManagments
+mvn spring-boot:run
+clear
+clear
+http http://localhost:8088/receptions/1 
+clear
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+mvn spring-boot:run
+mvn spring-boot:run
+mvn spring-boot:run
+mvn spring-boot:run
+docker-compose exec -it kafka /bin/bash
+az login --use-device-code
+az aks get-credentials --resource-group user04-rsrcgrp --name user04-aks
+az aks update -n user04-aks -g user04-rsrcgrp --attach-acr user04
+clear
+kubectl get all
+mvn spring-boot:run
+az account show
+az
+az login --use-device-code
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+az account show
+az login --use-device-code
+az aks get-credentials --resource-group user04-rsrcgrp --name user04-aks
+kubectl get all
+kubectl
+kubectl
+kubectl get all
+kbuectl get all
+kubectl get all
+clear
+kubectl get all
+clear
+kubectl get all
+kubectl get ns
+kubectl get all --namespace=defualt
+kubectl get all --namespace=default
+kubectl describe pod iagnosis-85d6474768-h88zs -n default
+kubectl describe pod diagnosis-85d6474768-h88zs -n default
+clear
+az aks update -n user04-aks -g user04-rsrcgrp --attach-acr user04
+clear
+kubectl describe pod iagnosis-85d6474768-h88zs -n default
+kubectl describe pod diagnosis-85d6474768-h88zs -n default
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl get all
+kubectl describe pod diagnosis-85d6474768-zkjwb -n default
+docker images | grep rossku
+docker images
+clear
+docker login user04.azurecr.io
+az acr login --name user04 --expose-token
+az acr login --name user04
+kubectl describe pod diagnosis-85d6474768-zkjwb -n default
+clear
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl create deploy myhome --image=user.azurecr.io/diagnosis:10
+kuecctl get all
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl create deploy  --image=user04.azurecr.io/diagnosis:10
+kubectl create deploy --image=user04.azurecr.io/diagnosis:10
+kubectl create deploy diagnosis --image=user04.azurecr.io/diagnosis:10
+kubectl get all
+kubectl describe pod diagnosis-677fd4bff9-99p8q -n default
+az acr login --name user04
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl get all
+kubectl describe pod diagnosis-6dcdf6b477-f84x7 -n default
+az ad sp create-for-rbac --name user04-sp --role contributor --scopes /subscriptions/cb5860b7-b8db-408f-89c2-ca518893e315
+az aks show -g user04-rsrcgrp -n user04-aks --query servicePrincipalProfile.clientId
+az role assignment create --assignee msi --scope /subscriptions/cb5860b7-b8db-408f-89c2-ca518893e315/resourceGroups/user04-rsrcgrp/providers/Microsoft.ContainerRegistry/registries/user04 --role acrpull
+az aks show -g user04-rsrcgrp -n user04-aks --query servicePrincipalProfile.clientId
+clear
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+clear
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl get all
+clear
+kubectl get all
+clear
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl get all
+clear
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all 
+kubectl get all
+az login --use-device-code
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+az login --use-device-code
+kubectl get all
+az aks get-credentials --resource-group user04-rsrcgrp --name user04-aks
+az aks update -n user04-aks -g user04-rsrcgrp --attach-acr user04
+kubectl get all
+docker image
+docker image ls
+docker container ls
+kubectl get all
+kubectl describe pod/diagnosis-67467d787b-vlp8z
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all
+kubectl get all
+clear
+kubectl get all
+clear
+kubectl get all
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all
+clear
+kubectl get all
+clear
+kubectl get all
+clear
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: siege
+spec:
+  containers:
+  - name: siege
+    image: apexacme/siege-nginx
+EOF
+kubectl get all
+kubectl describe pod/diagnosis-74bb45b9b5-wg6s2
+kubectl exec -it siege -- /bin/bash
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: siege
+spec:
+  containers:
+  - name: siege
+    image: apexacme/siege-nginx
+EOF
+clear
+kubectl get all
+kubectl get hpa
+kubectl get all
+kubectl scale deploy diagnosis --replicas=3
+kubectl get all
+kubectl scale deploy diagnosis --replicas=1
+kubectl get all
+kubectl exec -it siege -- /bin/bash
+clear
+kubectl get hpa
+kubectl top pods
+kubectl autoscale deployment diagnoses --cpu-percent=20 --min=1 --max=3
+kubectl get all
+kubectl autoscale deployment diagnosis --cpu-percent=20 --min=1 --max=3
+clear
+kubectl get hpa
+kubectl get all
+kubectl get po
+clear
+kubectl get all
+kubectl get hpa
+kubectl exec -it siege -- /bin/bash
+clear
+kubectl get all
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+az login --use-device-code
+az aks get-credentials --resource-group user04-rsrcgrp --name user04-aks
+kubectl get all
+az aks update -n user04-aks -g user04-rsrcgrp --attach-acr user04
+clear
+clear
+kubectl get all
+kubectl get hpa
+clear
+kubectl get hpa
+kubectl exec -it siege -- /bin/bash
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-dev
+  namespace: default
+data:
+  ORDER_DB_URL: jdbc:mysql://mysql:3306/connectdb1?serverTimezone=Asia/Seoul&useSSL=false
+  ORDER_DB_USER: myuser
+  ORDER_DB_PASS: mypass
+  ORDER_LOG_LEVEL: INFO
+EOF
+kubectl get ConfigMap
+kubectl get all
+kubectl exec pod/diagnosis-84f566d7db-p82rx --env
+kubectl exec pod/diagnosis-84f566d7db-p82rx -- env
+clear
+kubectl get all
+kubectl exec pod/diagnosis-84f566d7db-p82rx -- env
+kubectl logs -l app=diagnosis
+kubectl logs
+kubectl logs -l app=diagnosis
+kubectl logs -p diagnosis-84f566d7db-p82rx
+clear
+kubectl logs -l app=diagnosis
+kubectl get configmap config-dev -o yaml
+kubectl logs 
+kubectl logs -h
+kubectl logs all
+kubectl logs nginx --all-containers=true
+kubectl logs diagnosis
+kubectl get all
+kubectl logs pod/diagnosis-84f566d7db-p82rx
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all
+clear
+kubectl get all
+kubectl get configmap
+kubectl exec pod/diagnosis-84f566d7db-ggkgn -- env
+kubectl logs app=diagnosis
+kubectl logs app=deployment.apps/diagnosis
+kubectl logs app=diagnosis
+/
+./
+cd /
+kubectl logs app=diagnosis
+cd /workspace/capstoneproject
+kubectl logs pod/diagnosis-84f566d7db-ggkgn
+clear
+kubectl get pod --show-labels
+kubectl logs app=diagnosis
+kubectl get pods -A
+kubectl get pod --show-labels
+kubectl logs app=diagnosis
+kubectl logs -l app=diagnosis,pod-template-hash=84f566d7db
+kubectl logs -l app=diagnosis,pod-template-hash=84f566d7db -a
+kubectl logs -l app=diagnosis
+http 10.0.227.140:8080/diagnoses
+clear
+kubectl get all
+http 10.0.216.255:8080/diagnoses
+kubectl exec pod/diagnosis-84f566d7db-ggkgn -it -- bash
+kubectl exec -it diagnosis -- /bin/bash
+kubectl exec -it diagnosis-84f566d7db-ggkgn -- /bin/bash
+kubectl exec -it diagnosis-84f566d7db-ggkgn -it -- bash
+kubectl exec -it diagnosis-84f566d7db-ggkgn -it
+kubectl exec -it diagnosis-84f566d7db-ggkgn
+kubectl exec -it pod/diagnosis-84f566d7db-ggkgn -n default -- bash
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: siege
+spec:
+  containers:
+  - name: siege
+    image: apexacme/siege-nginx
+EOF
+clear
+kubectl get all
+kubectl logs -l app=diagnosis
+kubectl logs pod/diagnosis-84f566d7db-ggkgn
+clear
+kubectl delete configmap config-dev
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-dev
+  namespace: default
+data:
+  ORDER_DB_URL: jdbc:mysql://mysql:3306/connectdb1?serverTimezone=Asia/Seoul&useSSL=false
+  ORDER_DB_USER: myuser
+  ORDER_DB_PASS: mypass
+  ORDER_LOG_LEVEL: DEBUG
+EOF
+kubectl delete pod -l app=diagnosis
+kubectl get pod
+kubectl logs pod/diagnosis-84f566d7db-ggkgn
+kubectl logs pod/diagnosis-84f566d7db-hbndx
+kubectl logs -l app=diagnosis
+clear
+kubectl get all
+kubectl exec pod/diagnosis-84f566d7db-hbndx -- env
+kubectl logs -l app=diagnosis
+clear
+kubectl exec pod/diagnosis-84f566d7db-hbndx -- env
+clear
+kubectl exec pod/diagnosis-84f566d7db-hbndx -- env
+clear
+kubectl logs pod/diagnosis-84f566d7db-hbndx
+clear
+kubectl apply -f -<<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-volumes
+spec:
+  containers:
+  - image: redis
+    name: redis
+    volumeMounts:
+    - name: shared-storage
+      mountPath: /data/shared
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: shared-storage
+      mountPath: /data/shared
+  volumes:
+  - name: shared-storage
+    emptyDir: {}
+EOF
+kubectl exec -it shared-volumes --container redis -- /bin/bash
+cd /data/shared
+echo test… > test.txt
+exit
+kubectl exec -it siege -- /bin/bash
+clear
+kubectl exec -it shared-volumes --container nginx -- /bin/bash
+cd /data/shared
+ls
+kubectl exec -it shared-volumes --container redis -- /bin/bash
+kubectl exec -it shared-volumes --container nginx -- /bin/bash
+clear
+kubectl get all
+kubectl delete -p pod/shared-volumes  
+kubectl delete -pod pod/shared-volumes  
+kubectl delete pod pod/shared-volumes  
+kubectl delete po
+kubectl delete po pod/shared-volumes  
+kubectl delete pod -?
+kubectl delete pod -l
+kubectl delete --help
+kubectl delete pod shared-volumes
+kubectl get all
+clear
+kubectl get storageclass
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: azurefile
+  resources:
+    requests:
+      storage: 1Gi
+EOF
+kubectl get pvc
+clear
+kubectl get all
+clear
+kubectl get all
+kubectl exec -it pod/diagnosis-5f68cbb9fb-lhrbq -- /bin/sh
+kubectl scale deploy order --replicas=2
+kubectl scale deploy diagnosis --replicas=2
+clear
+kubectl get all
+clear
+kubectl scale deploy diagnosis --replicas=1
+clear
+kubectl get all
+kubectl scale deploy diagnosis --replicas=1
+kubectl get all
+clear
+kubectl get all
+kubectl scale deploy diagnosis --replicas=2
+kubectl get all
+kubectl exec -it pod/diagnosis-5f68cbb9fb-ghhzc -- /bin/sh
+kubectl scale deploy diagnosis --replicas=1
+clear
+kubectl get all
+clear
+kubectl get all
+kubectl get hpa
+kubectl get all
+clear
+kubectl get all
+clear
+kubectl get all
+clear
+export ISTIO_VERSION=1.20.8
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION TARGET_ARCH=x86_64 sh -
+cd istio-$ISTIO_VERSION
+export PATH=$PWD/bin:$PATH
+clear
+kubectl get all
+kubectl get service -n istio-system
+istioctl install --set profile=demo --set hub=gcr.io/istio-release
+mv samples/addons/loki.yaml samples/addons/loki.yaml.old
+curl -o samples/addons/loki.yaml https://raw.githubusercontent.com/msa-school/Lab-required-Materials/main/Ops/loki.yaml
+kubectl apply -f samples/addons
+kubectl get svc -n istio-system
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+helm repo add stable https://charts.helm.sh/stabl
+helm repo add stable https://charts.helm.sh/stable
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+kubectl create namespace medical
+kubectl label namespace medical istio-injection=enabled
+kubectl describe ns medical
+kubectl get svc -n istio-system
+kubectl patch svc kiali -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl patch svc Jaeger -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl patch svc tracing -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl apply -f medical.yaml -n medical
+cd /
+kubectl apply -f medical.yaml -n medical
+kubectl exec -it siege -- /bin/bash
+kubectl get service -n istio-system istio-ingressgateway
+kubectl apply -f istio-ingressgateway.yaml -n medical
+kubectl apply -f istio-ingressgateway.yaml -n medical
+kubectl get service -n istio-system istio-ingressgateway
+kubectl get service -n istio-system
+kubectl get service -n medical
+kubectl get all -n medical
+kubectl apply -f istio-ingressgateway.yaml
+kubectl get service -n istio-system
+kubectl get all --namespace=ingress-basic
+kubectl get ingress -n istio-system
+Ingress-LoadBalancer-IP/kiali
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-basic   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+kubectl create namespace ingress-basic
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-basic   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+kubectl get ingress -n istio-system
+clear
+kubectl get all
+kubectl get all -n medical
+kubectl get all -n istio-system
+kubectl get service -n istio-system
+celar
+clear
+kubectl delete po,deploy,svc,statefulset,replicaset,hpa,pvc,ns --all
+kubectl get all
+kubectl get ns
+kubectl delete namespace istio-system
+kubectl get ns
+kubectl delete namespace ingress-basic
+kubectl get ns
+kubectl get svc
+kubectl get ns
+cd istio-$ISTIO_VERSION
+ls
+cd istio-1.20.8/
+ls
+export PATH=$PWD/bin:$PATH
+kubectl delete -f samples/addons
+istioctl uninstall --purge
+kubectl delete namespace istio-system
+clear
+istioctl install --set profile=demo --set hub=gcr.io/istio-release
+mv samples/addons/loki.yaml samples/addons/loki.yaml.old
+curl -o samples/addons/loki.yaml https://raw.githubusercontent.com/msa-school/Lab-required-Materials/main/Ops/loki.yaml
+kubectl apply -f samples/addons
+kubectl get svc -n istio-system
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+chmod 700 get_helm.sh
+./get_helm.sh
+helm repo add stable https://charts.helm.sh/stable
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+kubectl create namespace ingress-basic
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-basic   --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+kubectl apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: "Ingress"
+metadata: 
+  name: "shopping-ingress"
+  namespace: istio-system
+  annotations: 
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec: 
+  ingressClassName: nginx
+  rules: 
+    - host: ""
+      http: 
+        paths: 
+          - path: /kiali
+            pathType: Prefix
+            backend: 
+              service:
+                name: kiali
+                port:
+                  number: 20001
+          - path: /grafana
+            pathType: Prefix
+            backend: 
+              service:
+                name: grafana
+                port:
+                  number: 3000
+          - path: /prometheus
+            pathType: Prefix
+            backend: 
+              service:
+                name: prometheus
+                port:
+                  number: 9090
+          - path: /loki
+            pathType: Prefix
+            backend: 
+              service:
+                name: loki
+                port:
+                  number: 3100
+EOF
+kubectl get ingress -n istio-system
+kubectl patch svc tracing -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get service -n istio-system
+kubectl create namespace medical
+kubectl label namespace medical istio-injection=enabled
+kubectl apply -f medical.yaml -n medical
+cd
+cd workspace/capstoneproject
+cd /workspace/capstoneproject
+kubectl apply -f medical.yaml -n medical
+kubectl get services -n medical
+kubectl get pod -n medical
+kubectl discribe diagnosis-6c8776998d-b45qn
+kubectl describe diagnosis-6c8776998d-b45qn -n medical
+kubectl describe diagnosis-6c8776998d-b45qn
+kubectl describe diagnosis-6c8776998d-b45qn -n medical
+kubectl get all -n medical
+kubectl describe pod/diagnosis-6c8776998d-b45qn
+kubectl describe pod/diagnosis-6c8776998d-b45qn -n medical
+az show
+az account show
+clear
+kubectl get all
+kubectl delete all -n medical
+kubectl delete pods -n medical
+kubectl get all -n medical
+kubectl delete ns -n medical
+kubectl delete ns medical
+kubectl create namespace medical
+kubectl label namespace medical istio-injection=enabled
+kubectl apply -f medical.yaml -n medical
+kubectl get all -n medical
+kubectl describe pod/diagnosis-6c8776998d-ts2cl -n medical
+kubectl apply -f medical.yaml
+kubectl get all 
+clear
+kubectl get all 
+kubectl delete deploy diagnosis
+kubectl get all 
+clear
+kubectl get all 
+clear
+kubectl get all 
+kubectl top node
+kubectl get all 
+kubectl get all -n medical
+kubectl delete namepsace medical
+kubectl delete namespace medical
+kubectl top node
+kubectl describe pod/diagnosis-ff9495964-qx5fm
+clear
+kubectl delete deploy diagnosis
+kubectl delete pod diagnosis
+kubectl delete pod pod/diagnosis-ff9495964-qx5fm
+kubectl delete -po pod/diagnosis-ff9495964-qx5fm
+kubectl delete pod pod/diagnosis-ff9495964-qx5fm
+kubectl delete pod diagnosis-ff9495964-qx5fm
+kubectl delete pod pod/diagnosis-ff9495964-qx5fm
+kubectl delete pod/diagnosis-ff9495964-qx5fm
+kubectl delete pod/diagnosis-ff9495964
+kubectl delete pod diagnosis
+clear
+kubectl get all
+kubectl delete svc diagnosis
+kubectl get all
+kubectl get ns
+kubectl get po -w
+kubectl create namespace medical
+kubectl describe ns medical
+kubectl label namespace medical istio-injection=enabled
+kubectl describe ns medical
+kubectl apply -f medical.yaml -n medical
+kubectl get all -n medical
+kubectl describe pod/diagnosis-6c8776998d-8hxtm
+kubectl describe pod/diagnosis-6c8776998d-8hxtm -n medical
+kubectl delete ns medical
+kubectl create namespace medical
+kubectl label namespace medical istio-injection=enabled
+kubectl get all -n medical
+kubectl get all
+kubectl get all -n medical
+kubectl apply -f istio-ingressgateway.yaml -n medical
+kubectl get all -n medical
+kubectl get svc istio-ingressgateway -n istio-system
+kubectl get all
+kubectl get svc istio-ingressgateway -n istio-system
+clear
+kubectl get service -n istio-system
+kubectl patch service/prometheus -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get svc istio-ingressgateway -n istio-system
+kubectl get service -n istio-system
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: siege
+spec:
+  containers:
+  - name: siege
+    image: apexacme/siege-nginx
+EOF
+clear
+kubectl get all
+kubectl patch service/grafana -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get service -n istio-system
+history
+history -w history.txt

@@ -1,0 +1,26 @@
+helm repo add stable https://charts.helm.sh/stable
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+kubectl create namespace ingress-basic
+
+kubectl create namespace medical
+kubectl label namespace medical istio-injection=enabled
+
+kubectl describe ns medical
+
+
+kubectl apply -f medical.yaml -n medical
+-> 그냥 파이프라인으로 namespace 지정해서 배포했음.
+
+
+kubectl apply -f istio-ingressgateway.yaml -n medical
+
+rate(istio_requests_total{app="diagnosis",destination_service="diagnosis.medical.svc.cluster.local"}[5m])
+
+rate(istio_requests_total{app="diagnosis",destination_service="diagnosis.medical.svc.cluster.local",response_code="200"}[5m])
+
+siege -c30 -t40S -v http://diagnosis:8080/diagnoses
+
+rate(istio_requests_total{app="diagnosis",destination_service="diagnosis.medical.svc.cluster.local"}[5m])
+
+rate(istio_requests_total{app="order",destination_service="order.shop.svc.cluster.local"}[5m])
