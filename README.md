@@ -83,7 +83,7 @@ http http://localhost:8088/examinations/1
 
 ### CQRS
 
-다른 도메인의 서비스의데이터 원본에 직접 접근없이 내 서비스에서의 데이터 조회가 가능하다
+다른 도메인의 서비스의 데이터 원본에 직접 접근없이 내 서비스에서 데이터 조회가 가능하다
 
 ![CQRS_1](https://github.com/user-attachments/assets/4203bbb9-ea80-4c8c-9345-3e06ecdd1bb8)
 
