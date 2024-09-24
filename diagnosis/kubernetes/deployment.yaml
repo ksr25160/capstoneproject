@@ -19,6 +19,14 @@ spec:
           image: "user04.azurecr.io/diagnosis:latest"
           ports:
              - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: "/diagnoses"
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
           resources:
             requests:
               cpu: "200m"
@@ -35,11 +43,3 @@ spec:
         - name: volume
           persistentVolumeClaim:
             claimName: azurefile                         
-          readinessProbe:
-            httpGet:
-              path: '/diagnosis'
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
