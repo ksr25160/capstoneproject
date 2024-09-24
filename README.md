@@ -520,7 +520,7 @@ seige 명령으로 서비스에 부하를 발생한다
 
 ```bash
 kubectl exec -it siege -- /bin/bash
-siege -c20 -t60S -v http://diagnosis:8080/diagnoses
+siege -c20 -t60S -v 20.249.203.209/diagnoses
 exit
 ```
 
@@ -550,7 +550,7 @@ seige 명령으로 서비스에 부하를 발생한다
 
 ```bash
 kubectl exec -it siege -- /bin/bash
-siege -c20 -t60S -v http://diagnosis:8080/diagnoses
+siege -c20 -t60S -v 20.249.203.209/diagnoses
 exit
 ```
 
@@ -589,7 +589,7 @@ seige 명령으로 서비스에 부하를 발생한다
 
 ```bash
 kubectl exec -it siege -- /bin/bash
-siege -c20 -t60S -v http://diagnosis:8080/diagnoses
+siege -c20 -t60S -v 20.249.203.209/diagnoses
 exit
 ```
 
