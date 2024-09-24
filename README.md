@@ -21,45 +21,45 @@
 
 ## 클라우드 네이티브 아키텍처
 
-<figure><img src="../.gitbook/assets/클라우드 네이티브 아키텍처.png" alt=""><figcaption></figcaption></figure>
+![클라우드 네이티브 아키텍처](https://github.com/user-attachments/assets/ed8c13ba-3de5-4a4f-99dc-e5548c7914dd)
 
 ## 클라우드 네이티브 모델링
 
-<figure><img src="../.gitbook/assets/클라우드 네이티브 모델링.png" alt=""><figcaption></figcaption></figure>
+![클라우드 네이티브 모델링](https://github.com/user-attachments/assets/70827861-1857-4315-9eee-a6d49b2bb617)
 
 ## 클라우드 네이티브 개발
 
 1. 접수자가 진료를 접수한다
 
-<figure><img src="../.gitbook/assets/기능 확인_1.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_1](https://github.com/user-attachments/assets/273a9c8c-75b9-4107-b666-2d007e7d5018)
 
 2. 접수가 완료되면 의사에게 환자 정보가 등록된다
 
-<figure><img src="../.gitbook/assets/기능 확인_2.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_2](https://github.com/user-attachments/assets/c63162ed-cce1-400b-be20-d6b83301f6ac)
 
 3. 등록된 정보로 의사가 검사를 처방한다
 
-<figure><img src="../.gitbook/assets/기능 확인_3.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_3](https://github.com/user-attachments/assets/fab2e57a-9a32-4be1-bbe1-3554c6765aab)
 
 4. 검사 정보가 생성된다
 
-<figure><img src="../.gitbook/assets/기능 확인_4.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_4](https://github.com/user-attachments/assets/5fda381b-ac25-4391-ab8e-188be62ed67f)
 
 5. 검사자가 검사를 시행 및 취소한다
 
-<figure><img src="../.gitbook/assets/기능 확인_5.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_5](https://github.com/user-attachments/assets/8278139a-5c35-460b-a3ab-bb88cd13afeb)
 
 6. 의사가 검사 결과를 확인한다
 
-<figure><img src="../.gitbook/assets/기능 확인_6.png" alt=""><figcaption></figcaption></figure>
+![기능 확인_6](https://github.com/user-attachments/assets/122be4f0-7348-4b10-9e7f-947aff9ad596)
 
 7. 의사가 진료 (종료/ 거부)를 한다
 
-<figure><img src="../.gitbook/assets/기능 확인_7.png" alt=""><figcaption></figcaption></figure>
+![기능 확인_7](https://github.com/user-attachments/assets/0372521a-2901-4d99-a467-c73a68fd2109)
 
 8. 접수자가 진료 (완료/취소)를 확인한다
 
-<figure><img src="../.gitbook/assets/기능 확인_8.PNG" alt=""><figcaption></figcaption></figure>
+![기능 확인_8](https://github.com/user-attachments/assets/76ecd1e5-8881-4d07-8d18-c424ec1f3203)
 
 ### SAGA
 
@@ -69,7 +69,7 @@ Choreography 방식 Kafka를 통해 게시-구독 원칙을 적용하여 각 마
 
 검사거부, 완료 진료 거부 ,완료시 자동으로 Status 변경
 
-<figure><img src="../.gitbook/assets/Compesnation.png" alt=""><figcaption></figcaption></figure>
+![Compesnation](https://github.com/user-attachments/assets/8af70d21-5a3d-4329-a3bd-280e293bc445)
 
 ### GateWay
 
@@ -85,25 +85,17 @@ http http://localhost:8088/examinations/1
 
 다른 도메인의 서비스의데이터 원본에 직접 접근없이 내 서비스에서의 데이터 조회가 가능하다
 
-<div>
+![CQRS_1](https://github.com/user-attachments/assets/4203bbb9-ea80-4c8c-9345-3e06ecdd1bb8)
 
-<figure><img src="../.gitbook/assets/CQRS_1.png" alt=""><figcaption></figcaption></figure>
+![CQRS_2](https://github.com/user-attachments/assets/c6af900e-ad77-45f4-bfa0-516602b5e29f)
 
- 
-
-<figure><img src="../.gitbook/assets/CQRS_2.png" alt=""><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../.gitbook/assets/CQRS_3.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+![CQRS_3](https://github.com/user-attachments/assets/02775b28-a54d-4a4e-a26f-aac81ef73b02)
 
 ```bash
 http http://localhost:8085/patientManagements
 ```
 
-<figure><img src="../.gitbook/assets/CQRS_4.png" alt=""><figcaption></figcaption></figure>
+![CQRS_4](https://github.com/user-attachments/assets/b7141ae2-fcd7-4351-a849-4df0b8f97f76)
 
 ## 클라우드 배포 - Container 운영
 
@@ -113,13 +105,13 @@ Pipline Trigger 설정을 통해 GitHub에  Push를 수행할 경우 빌드를 �
 
 Pipline build script는 서비스별 폴더의 kubernetes/deployment.yaml을 이용한다
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_1.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_1](https://github.com/user-attachments/assets/80a77015-a340-4d57-84f0-58d96e120b1e)
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_2.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_2](https://github.com/user-attachments/assets/c69b872f-50a9-47a4-90a8-a23b51b619b0)
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_9.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_9](https://github.com/user-attachments/assets/0dd6d6a5-6538-49ce-91ec-b298f1c350db)
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_10.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_10](https://github.com/user-attachments/assets/35a5b4c2-7cad-48d2-9b34-79211a7573f7)
 
 ```bash
 apiVersion: apps/v1
@@ -147,11 +139,11 @@ spec:
 
 ### ACR
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_4.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_4](https://github.com/user-attachments/assets/33dce065-2ebd-4335-ad05-a06f0cd708ed)
 
 ### 쿠버네티스 배포 완료
 
-<figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_3.png" alt=""><figcaption></figcaption></figure>
+![클라우드 배포 - Container 운영_3](https://github.com/user-attachments/assets/1a51bb3b-df7b-47bf-89a4-d678a434ecc7)
 
 ## 컨테이너 인프라 설계 및 구성 역량
 
@@ -202,19 +194,19 @@ siege -c20 -t60S -v http://diagnosis:8080/diagnoses
 exit
 ```
 
-<figure><img src="../.gitbook/assets/HPA_3.png" alt=""><figcaption></figcaption></figure>
+![HPA_3](https://github.com/user-attachments/assets/e5fc9fd0-3e4a-426a-bf6f-245e75e0d031)
 
 ```bash
 kubectl get po -w
 ```
 
-<figure><img src="../.gitbook/assets/HPA_2.png" alt=""><figcaption></figcaption></figure>
+![HPA_2](https://github.com/user-attachments/assets/4aa042a5-4fd1-4ac0-9d56-630fa2eb0e14)
 
 ```bash
 kubectl get hpa
 ```
 
-<figure><img src="../.gitbook/assets/HPA_1.png" alt=""><figcaption></figcaption></figure>
+![HPA_1](https://github.com/user-attachments/assets/5b6cec37-ebd4-450f-96f6-33d37ead4b15)
 
 ### 컨테이너로부터 환경분리 - ConfigMap
 
@@ -235,7 +227,7 @@ data:
 EOF
 ```
 
-<figure><img src="../.gitbook/assets/ConfigMap_1.png" alt=""><figcaption></figcaption></figure>
+![ConfigMap_1](https://github.com/user-attachments/assets/6b9a519a-05cd-4fc3-898c-599edf210113)
 
 배포파일에 설정을 추가하고 배포한다
 
@@ -277,7 +269,7 @@ kubectl exec pod/diagnosis-84f566d7db-p82rx -- env
 
 Log Level이 INFO로 설정되어 있다
 
-<figure><img src="../.gitbook/assets/ConfigMap_2.png" alt=""><figcaption></figcaption></figure>
+![ConfigMap_2](https://github.com/user-attachments/assets/75a847d3-1013-43c1-ac82-7f43ae902c44)
 
 ### 클라우드스토리지 활용 - PVC
 
@@ -301,7 +293,7 @@ EOF
 
 정상적으로 생성 확인
 
-<figure><img src="../.gitbook/assets/PVC_1.png" alt=""><figcaption></figcaption></figure>
+![PVC_1](https://github.com/user-attachments/assets/cd071285-a844-4930-a89d-5bf116f66618)
 
 배포파일에 설정을 추가하고 배포한다
 
@@ -338,11 +330,11 @@ spec:
 
 배포 후 컨테이너에 접속하여 제대로 파일시스템이 마운트되었는지 확인 후 test.txt파일을 생성한다
 
-<figure><img src="../.gitbook/assets/PVC_2.png" alt=""><figcaption></figcaption></figure>
+![PVC_2](https://github.com/user-attachments/assets/83c1699e-a6e3-4f4b-a4c6-521581d17192)
 
 이후, 서비스를 2개로 Scale Out하고 확장된 주문 서비스에서도 test.txt가 확인되는지 검증한다
 
-<figure><img src="../.gitbook/assets/PVC_3.png" alt=""><figcaption></figcaption></figure>
+![PVC_3](https://github.com/user-attachments/assets/8c8166ae-d894-491b-a480-5e053bec83e6)
 
 ### 셀프 힐링/무정지배포 - Liveness/Rediness Probe
 
@@ -390,15 +382,15 @@ exit
 
 배포완료
 
-<figure><img src="../.gitbook/assets/Rediness Probe_1.png" alt=""><figcaption></figcaption></figure>
+![Rediness Probe_1](https://github.com/user-attachments/assets/55f885e0-04bd-4037-b4a8-5c0337f38c24)
 
-<figure><img src="../.gitbook/assets/Rediness Probe_2.png" alt=""><figcaption></figcaption></figure>
+![Rediness Probe_2](https://github.com/user-attachments/assets/02558869-4fbf-431d-b120-f2b42d853a99)
 
 3분 동안 부하테스트 후 무정지 배포 완료
 
-<figure><img src="../.gitbook/assets/Rediness Probe_3.png" alt=""><figcaption></figcaption></figure>
+![Rediness Probe_3](https://github.com/user-attachments/assets/012ecc8c-b6de-4861-9952-37fb4d2cc1cd)
 
-<figure><img src="../.gitbook/assets/Rediness Probe_4.png" alt=""><figcaption></figcaption></figure>
+![Rediness Probe_4](https://github.com/user-attachments/assets/21243b4b-8724-4de2-8cef-8d7d7d2094e1)
 
 ### 서비스 메쉬 응용 - Mesh
 
@@ -459,7 +451,7 @@ EOF
 
 설치 확인
 
-<figure><img src="../.gitbook/assets/SVCMesh_7.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_7](https://github.com/user-attachments/assets/95991cc9-db95-45dd-b79e-d1ef0de41296)
 
 Tracing Server - Jaeger  - ServiceType을 ClusterIP에서 LoadBalancer로 변경한다
 
@@ -474,7 +466,7 @@ kubectl create namespace medical
 kubectl label namespace medical istio-injection=enabled
 ```
 
-<figure><img src="../.gitbook/assets/SVCMesh_1.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_1](https://github.com/user-attachments/assets/2f46d503-af8a-4abe-8f4e-ded519481f2e)
 
 트래픽, 라우팅이나 정책등을 위해 Istio의 Ingress Gateway를 설정하여 배포 한다
 
@@ -518,11 +510,11 @@ spec:
 
 istio gateway에 연결된 서비스를 배포 및 EXTERNAL-IP를 확인한다
 
-<figure><img src="../.gitbook/assets/SVCMesh_5.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_5](https://github.com/user-attachments/assets/12c60163-0b39-4fd8-9ff6-6bf5eda30911)
 
 해당 주소로 동작을 확인한다&#x20;
 
-<figure><img src="../.gitbook/assets/SVCMesh_3.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_3](https://github.com/user-attachments/assets/d05c843a-25cd-4ef9-91b0-774212bb9b08)
 
 seige 명령으로 서비스에 부하를 발생한다
 
@@ -532,15 +524,15 @@ siege -c20 -t60S -v http://diagnosis:8080/diagnoses
 exit
 ```
 
-<figure><img src="../.gitbook/assets/SVCMesh_8.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_8](https://github.com/user-attachments/assets/75f684d2-4fda-4b1d-bd28-e082b552e4cf)
 
 Kiali를 통한 서비스 메쉬 모니터링
 
-<figure><img src="../.gitbook/assets/SVCMesh_4.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_4](https://github.com/user-attachments/assets/7530120a-8e94-46e9-a724-0386b44975af)
 
 Jaeger를 통한 서비스 트레이싱
 
-<figure><img src="../.gitbook/assets/SVCMesh_6.png" alt=""><figcaption></figcaption></figure>
+![SVCMesh_6](https://github.com/user-attachments/assets/bf72350a-3dd6-44cf-9d7b-5c1f36ac6a9a)
 
 ### 통합 모니터링 - Loggregation/Monitoring
 
@@ -552,7 +544,7 @@ Prometheus UI 사용을 위해 Service Scope을 LoadBalancer Type으로 수정�
 kubectl patch service/prometheus -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_1.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_1](https://github.com/user-attachments/assets/8c4721d4-d7ab-40a8-a4d2-1fb2c3feac79)
 
 seige 명령으로 서비스에 부하를 발생한다
 
@@ -562,7 +554,7 @@ siege -c20 -t60S -v http://diagnosis:8080/diagnoses
 exit
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_5.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_5](https://github.com/user-attachments/assets/9a58d4c2-9fde-490a-bfb0-6f7f1b3ad13c)
 
 Prometheus service EXTERNAL-IP:9090에 접속하고 아래와 같이 Expression 브라우저 화면에서 조회한다
 
@@ -571,9 +563,9 @@ istio_requests_total{destination_service_name="diagnosis",app="diagnosis"}
 istio_requests_total{app="diagnosis", destination_service="diagnosis.medical.svc.cluster.local", response_code = "200"}
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_2.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_2](https://github.com/user-attachments/assets/7dcb1b03-bd12-4587-9d9d-e223b2c76f37)
 
-<figure><img src="../.gitbook/assets/로그_모니터링_3.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_3](https://github.com/user-attachments/assets/3fbd3059-5988-4df0-9f33-044b7039c0c6)
 
 PromQL기반의 그래프로 조회한다
 
@@ -581,7 +573,7 @@ PromQL기반의 그래프로 조회한다
 rate(istio_requests_total{app="diagnosis",destination_service="diagnosis.medical.svc.cluster.local",response_code="200"}[5m])
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_4.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_4](https://github.com/user-attachments/assets/e40d5ba4-c861-4f9c-8ce5-25fd1efec3c9)
 
 #### Grafana
 
@@ -591,7 +583,7 @@ Grafana 사용을 위해 Service Scope을 LoadBalancer Type으로 수정한다
 kubectl patch service/grafana -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_6.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_6](https://github.com/user-attachments/assets/81f3248d-967d-4374-a604-4f752dfd3bdc)
 
 seige 명령으로 서비스에 부하를 발생한다
 
@@ -601,10 +593,10 @@ siege -c20 -t60S -v http://diagnosis:8080/diagnoses
 exit
 ```
 
-<figure><img src="../.gitbook/assets/로그_모니터링_8.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_8](https://github.com/user-attachments/assets/36f70223-b6eb-483d-99a6-af8962d0bfbb)
 
 부하량에 따른 서비스 차트의 실시간 Gauge를 확인한다
 
 아래와 같이 Network IO, CPU, Memory 사용량이 실시간 증가한다
 
-<figure><img src="../.gitbook/assets/로그_모니터링_7.png" alt=""><figcaption></figcaption></figure>
+![로그_모니터링_7](https://github.com/user-attachments/assets/6887c591-107c-4afb-b5c0-c7fe011a322c)
