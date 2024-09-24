@@ -1,12 +1,4 @@
----
-icon: square-check
----
-
-# Capstone Project
-
 ## 서비스 시나리오
-
-***
 
 ### 기능적 요구사항
 
@@ -29,19 +21,13 @@ icon: square-check
 
 ## 클라우드 네이티브 아키텍처
 
-***
-
-
+<figure><img src="../.gitbook/assets/클라우드 네이티브 아키텍처.png" alt=""><figcaption></figcaption></figure>
 
 ## 클라우드 네이티브 모델링
-
-***
 
 <figure><img src="../.gitbook/assets/클라우드 네이티브 모델링.png" alt=""><figcaption></figcaption></figure>
 
 ## 클라우드 네이티브 개발
-
-***
 
 1. 접수자가 진료를 접수한다
 
@@ -121,8 +107,6 @@ http http://localhost:8085/patientManagements
 
 ## 클라우드 배포 - Container 운영
 
-***
-
 ### AzureDevOps를 통해 CI/CD 진행
 
 Pipline Trigger 설정을 통해 GitHub에  Push를 수행할 경우 빌드를 한다
@@ -170,8 +154,6 @@ spec:
 <figure><img src="../.gitbook/assets/클라우드 배포 - Container 운영_3.png" alt=""><figcaption></figcaption></figure>
 
 ## 컨테이너 인프라 설계 및 구성 역량
-
-***
 
 ### 컨테이너 자동확장 - HPA
 
@@ -561,8 +543,6 @@ Jaeger를 통한 서비스 트레이싱
 <figure><img src="../.gitbook/assets/SVCMesh_6.png" alt=""><figcaption></figcaption></figure>
 
 ### 통합 모니터링 - Loggregation/Monitoring
-
-***
 
 #### Prometheus
 
