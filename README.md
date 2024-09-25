@@ -67,7 +67,7 @@ Choreography 방식 Kafka를 통해 게시-구독 원칙을 적용하여 각 마
 
 ### Compesnation
 
-검사거부, 완료 진료 거부 ,완료시 자동으로 Status 변경
+검사거부, 완료 진료 거부, 완료시 자동으로 Status 변경
 
 ![Compesnation](https://github.com/user-attachments/assets/8af70d21-5a3d-4329-a3bd-280e293bc445)
 
